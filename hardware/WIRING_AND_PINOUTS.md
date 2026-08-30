@@ -1,45 +1,46 @@
 # 🔌 Electrical Schematics & Pinout Specification
 
-### Board: Arduino Uno R3 with Sensor Shield V5.0
+### Controller: Arduino Uno R3 with Sensor Shield V5.0
 
 ---
 
-## 1. L298N Motor Driver Connections
-| L298N Pin | Arduino / Shield Pin | Function | Notes |
+## 1. L298N Dual H-Bridge Motor Driver Connections
+| L298N Terminal / Pin | Arduino Uno Pin | Subsystem | Function / Role |
 | :--- | :--- | :--- | :--- |
-| **ENA** | Digital Pin 9 | PWM Speed Control | Jumper removed for PWM |
-| **IN1** | Digital Pin 8 | Direction Logic A | Feeder Forward |
-| **IN2** | Digital Pin 10 | Direction Logic B | Feeder Reverse |
-| **ENB** | Digital Pin 11 | PWM Speed Control 2 | Starwheel Speed |
-| **IN3** | Digital Pin 12 | Direction Logic C | Starwheel Forward |
-| **IN4** | Digital Pin 13 | Direction Logic D | Starwheel Reverse |
-| **GND** | Shield GND | Common Ground | **Must share ground with Arduino** |
-| **+12V** | External 12V Battery | Motor Power Rail | Powers DC geared motors |
+| **ENA** | Digital Pin 9 (PWM) | Motor A (Starwheel Feeder) | High-speed forward/reverse indexing bursts |
+| **IN1** | Digital Pin 8 | Motor A (Starwheel Feeder) | Forward rotation logic |
+| **IN2** | Digital Pin 4 | Motor A (Starwheel Feeder) | Reverse micro-agitation & anti-jam logic |
+| **ENB** | Digital Pin 6 (PWM) | Motor B (Conveyor Belt) | Step-down vibrational PWM speed ramping |
+| **IN3** | Digital Pin 3 | Motor B (Conveyor Belt) | Forward conveyor feed logic |
+| **IN4** | Digital Pin 7 | Motor B (Conveyor Belt) | Direction reference logic |
+| **GND** | Arduino GND | Power Ground | **Common ground shared with Arduino & 12V supply** |
+| **+12V** | External 12V DC Supply | Motor Rail | High-torque DC geared motor power |
 
 ---
 
-## 2. SG90 Servo Diverter Gate
-| Servo Wire | Sensor Shield V5 Header | Function |
+## 2. SG90 High-Speed Diverter Servo
+| Servo Lead | Arduino Pin / Header | Function |
 | :--- | :--- | :--- |
-| **Signal (Orange/Yellow)** | Digital Pin 4 (Header D4) | PWM Angular Control (0° - 180°) |
-| **VCC (Red)** | Header D4 VCC (+5V) | Regulated 5V |
-| **GND (Brown/Black)** | Header D4 GND | Common Ground |
+| **Signal (Orange/Yellow)** | Analog Pin A5 (Header A5) | PWM Angle Deflection (0° to 180°) |
+| **VCC (+5V Red)** | Sensor Shield +5V Header | Regulated 5V Rail |
+| **GND (Brown/Black)** | Sensor Shield GND Header | Ground Reference |
 
 ---
 
-## 3. HC-05 Bluetooth Module
-| HC-05 Pin | Arduino / Shield Pin | Function | Notes |
+## 3. HC-05 Bluetooth SPP Module
+| HC-05 Pin | Arduino Pin | Subsystem | Notes |
 | :--- | :--- | :--- | :--- |
-| **VCC** | +5V Pin | Logic Power | |
-| **GND** | GND Pin | Ground | |
-| **TXD** | Digital Pin 2 (RX) | SoftwareSerial RX | Reads bytes from phone |
-| **RXD** | Digital Pin 3 (TX) | SoftwareSerial TX | Optional voltage divider recommended (5V to 3.3V) |
+| **RXD** | Digital Pin 10 | SoftwareSerial RX | Receives sorting bytes from mobile camera client |
+| **TXD** | Digital Pin 11 | SoftwareSerial TX | Status & telemetry output |
+| **VCC** | +5V Pin | Logic Power | Regulated 5V supply |
+| **GND** | GND Pin | Ground | Common system ground |
 
 ---
 
-## 4. RGB Diagnostic Status LED
-| LED Pin | Arduino Pin | Indication State |
-| :--- | :--- | :--- |
-| **Red** | Digital Pin 5 | Rejected / Defective Nut Diverted |
-| **Green** | Digital Pin 6 | Premium Quality Nut Passed |
-| **Blue** | Digital Pin 7 | Standby / Inspection Ready |
+## 4. RGB Diagnostic Status LED (Common Anode)
+| LED Pin | Arduino Pin | Indication State | Sorting Grade |
+| :--- | :--- | :--- | :--- |
+| **Red (R)** | Digital Pin 13 | Solid Red (0°) | **Gorabalu** (Immature / raw whole dried nut) |
+| **Green (G)** | Digital Pin 12 | Solid Green (60°) | **Gootu / Goto / Bette** (Medium-grade processed nut) |
+| **Blue (B)** | Digital Pin 5 (PWM) | Solid Blue (120°) | **Rashi Edi** (Tender boiled whole nut - prime market grade) |
+| **White (R+G+B)**| Pins 13, 12, 5 | Solid White (180°) | **Hasa** (Premium husked / select tender grade) |
