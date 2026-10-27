@@ -2,7 +2,7 @@
 
 ### *Edge AI Optical Sorter & Physical Grading Machine for Malnad Arecanut Varieties*
 
-[![BMSCE Undergrad](https://img.shields.io/badge/1st_Year_Undergrad-CSBS_%40_BMSCE-00f0ff?style=for-the-badge)](https://bmsce.ac.in)
+[![BMSCE Undergrad](https://img.shields.io/badge/1st_Year_Undergrad-ECE_%40_BMSCE-00f0ff?style=for-the-badge)](https://bmsce.ac.in)
 [![Target R&D](https://img.shields.io/badge/Target_R%26D-MAMCOS_%26_NAMCOS-orange?style=for-the-badge)](https://mamcos.in)
 [![Inference Latency](https://img.shields.io/badge/Edge_AI-<22ms_TFLite-10B981?style=for-the-badge)](ml_pipeline/run_pipeline.py)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
@@ -184,7 +184,7 @@ arecanut-ai-sorting-machine/
 
 ---
 
-## 💼 Business & Economic Impact (CSBS Dimension)
+## 💼 Business & Economic Impact
 
 * **Labor Cost Reduction:** Replaces manual grading shifts, reducing processing labor costs during peak post-harvest seasons.
 * **Fair Price Realization for Farmers:** Eliminates human sorting bias and inconsistency, ensuring farmers receive accurate market pricing based on objective optical grading standards.
@@ -195,7 +195,7 @@ arecanut-ai-sorting-machine/
 ## 👤 Author
 
 **Abhay Kashyap**  
-*1st Year Undergrad — B.Tech in Computer Science & Business Systems (CSBS)*  
+*Undergraduate — B.Tech in Electronics & Communication Engineering (ECE)*  
 *B.M.S. College of Engineering (BMSCE), Bangalore, India*  
 GitHub: [@abhay2008](https://github.com/abhay2008) • Email: [abhaykashyap2008@gmail.com](mailto:abhaykashyap2008@gmail.com)  
 Portfolio: [abhayportfolio.vercel.app](https://abhayportfolio.vercel.app)
